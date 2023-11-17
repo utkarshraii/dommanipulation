@@ -38,13 +38,13 @@
 
 //GET ELEMENTSBYID //
 // console.log(document.getElementById("header-title"));
-var headertitle = document.getElementById("header-title");
-var header = document.getElementById("main-header");
+// var headertitle = document.getElementById("header-title");
+// var header = document.getElementById("main-header");
 // console.log(headertitle);
 // headertitle.textContent = "Hello"; // changes item lister to hello
 // headertitle.innerText = "GoodBye"; // pays attention to style(only diff between textcontent and innertext)
 // headertitle.innerHTML = "<h3>Hello</h3>";
-header.style.borderBottom = "solid 3px #000"; // draws a black border
+// header.style.borderBottom = "solid 3px #000"; // draws a black border
 
 //GETELEMENTSBYCLASSNAME//
 // var items = document.getElementsByClassName("list-group-item");
@@ -110,3 +110,140 @@ header.style.borderBottom = "solid 3px #000"; // draws a black border
 // for (var i = 0; i < even.length; i++) {
 //   even[i].style.backgroundColor = "#ccc";
 // }
+
+// TRAVERSING THE DOM //
+// QUERY PARENT AND SIBLING //
+
+// var itemList = document.querySelector("#items");
+// parentNode
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = "#f4f4f4";
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+// parentElement similar to parentNode
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = "#f4f4f4";
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+// childNode
+// console.log(itemList.childNodes); //we get a node list
+// text node represents white space
+// childNode also includes white spaces but children prop doesnot
+
+//children
+// console.log(itemList.children); //outputs an html collection and not node list
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = "yellow";
+
+//Firstchild
+// console.log(itemList.firstChild); //returns text as it includes white spaces like childNodes
+
+//FirstElementChild
+// console.log(itemList.firstElementChild); //returns first element Li
+// itemList.firstElementChild.textContent = "hello1";
+
+//Lasttchild
+// console.log(itemList.lastChild); //returns text as it includes white spaces like childNodes
+
+//lastElementChild
+// console.log(itemList.lastElementChild); //returns last element Li
+// itemList.lastElementChild.textContent = "hello1";
+
+//nextSibling
+// console.log(itemList.nextSibling); //similar to childNode
+
+//nextElementSibling - similar to children
+// console.log(itemList.nextElementSibling); //returns null as it doesnot have any
+
+//previousSibling -similar to childNode
+// console.log(itemList.previousSibling);
+
+//previousElementSibling -similar to children
+// console.log(itemList.previousElementSibling);
+// itemList.previousElementSibling.style.color = "green";
+
+// CREATEELEMENT //
+
+// //create a div
+// var newDiv = document.createElement("div");
+
+// //add class
+// newDiv.className = "hello";
+
+// //add id
+// newDiv.id = "hello1";
+
+// //add title
+// newDiv.setAttribute("title", "Hello Div");
+
+// //create text node
+// var newDivText = document.createTextNode("hello world");
+
+// // add text to div
+// newDiv.appendChild(newDivText);
+
+// //add div to dom
+// var container = document.querySelector("header .container");
+// var h1 = document.querySelector("header h1");
+
+// console.log(newDiv);
+
+// newDiv.style.fontSize = "30px";
+// container.insertBefore(newDiv, h1); //inserts before h1
+
+// var button = document
+//   .getElementById("button")
+//   .addEventListener("click", buttonClick);
+// function buttonClick(e) {
+//   console.log("button clicked");
+//   document.getElementById("header-title").textContent = "Changed";
+//   document.querySelector("#main").style.backgroundColor = "#f4f4f4";
+//   console.log(e);
+//   console.log(e.target);
+//   console.log(e.target.id);
+//   console.log(e.target.className);
+//   console.log(e.target.classList);
+//   var output = document.getElementById("output");
+//   output.innerHTML = "<h3>" + e.target.id + "</h3>";
+//   console.log(e.type);
+//   console.log(e.clientX); //position of click from the window
+//   console.log(e.clientY);
+//   console.log(e.offsetX); // position of click from the actual element
+//   console.log(e.altKey); // returns bool value if you have hold alt key or not
+//   console.log(shiftKey);
+//   console.log(ctrlKey);
+
+// }
+
+var button = document.getElementById("button");
+var box = document.getElementById("box");
+// button.addEventListener("click", runEvent);
+// button.addEventListener("dblclick", runEvent);
+// button.addEventListener("mousedown", runEvent);
+// button.addEventListener("mouseup", runEvent);
+
+// box.addEventListener("mouseenter", runEvent);
+// box.addEventListener("mouseleave", runEvent);
+// box.addEventListener("mouseover", runEvent);
+// box.addEventListener("mouseout", runEvent);
+// box.addEventListener("mousemove", runEvent);
+var itemInput = document.querySelector('input[type="text"]');
+var form = document.querySelector("form");
+// itemInput.addEventListener("keydown", runEvent);
+// itemInput.addEventListener("keyup", runEvent);
+// itemInput.addEventListener("keypress", runEvent);
+
+// itemInput.addEventListener("focus", runEvent);
+// itemInput.addEventListener("blur", runEvent);
+// itemInput.addEventListener("cut", runEvent);
+// itemInput.addEventListener("paste", runEvent);
+function runEvent(e) {
+  console.log("EVENT TYPE : " + e.type);
+  //   console.log(e.target.value);
+  //   document.getElementById("output").innerHTML =
+  //     "<h3>" + e.target.value + "</h3>";
+  //   output.innerHTML =
+  //     "<h3>MouseX: " + e.offsetX + "</h3><h3>MouseY: " + e.offsetY + "</h3>";
+  //   document.body.style.backgroundColor =
+  //     "rgb(" + e.offsetX + "," + e.offsetY + ",40)";
+}
